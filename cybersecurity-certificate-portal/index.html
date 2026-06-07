@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>公钥基础设施</title>
+    <link rel="icon" href="./assets/zf-logo-mark.png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <section class="login-screen" id="loginScreen" aria-label="PKI 登录入口">
+      <main class="login-cover cover-stage" aria-label="Cybersecurity PKI Operation dynamic cover">
+        <img
+          class="cover-image"
+          src="./assets/cybersecurity-pki-cover.png"
+          alt="Cybersecurity PKI Operation cover"
+        />
+
+        <canvas id="particleCanvas" class="particle-canvas" aria-hidden="true"></canvas>
+
+        <div class="light-breath" aria-hidden="true"></div>
+        <div class="scan-glow" aria-hidden="true"></div>
+
+        <section class="title-light" aria-hidden="true">
+          <h1>
+            <span data-text="Cybersecurity">Cybersecurity</span>
+            <span data-text="PKI Operation">PKI Operation</span>
+          </h1>
+        </section>
+
+        <div class="hud-core" aria-hidden="true">
+          <span class="ring ring-a"></span>
+          <span class="ring ring-b"></span>
+          <span class="ring ring-c"></span>
+          <span class="pulse-dot dot-top"></span>
+          <span class="pulse-dot dot-right"></span>
+          <span class="pulse-dot dot-bottom"></span>
+          <span class="pulse-dot dot-left"></span>
+        </div>
+
+        <div class="login-language-switcher" id="loginLanguageSwitcher" aria-label="语言切换">
+          <button class="language-toggle-button" data-language-toggle type="button">
+            <strong>English</strong>
+          </button>
+        </div>
+
+        <section class="login-panel" aria-labelledby="loginTitle">
+          <div class="login-heading">
+            <h1 id="loginTitle">Account Sign In</h1>
+            <p>Select a role and enter your account credentials.</p>
+          </div>
+
+          <form class="login-form" id="loginForm" novalidate>
+            <label class="login-field login-role-field" for="loginRoleSelect">
+              <span class="login-label-copy">
+                <strong>Login role</strong>
+                <em>Login role</em>
+              </span>
+              <select id="loginRoleSelect" name="loginRole" required>
+                <option value="">Select login role</option>
+                <option value="cyber">PKI Manager</option>
+                <option value="engineer">PKI User</option>
+              </select>
+            </label>
+
+            <label class="login-field" for="loginAccount">
+              <span class="login-label-copy">
+                <strong>Account</strong>
+                <em>Account</em>
+              </span>
+              <input id="loginAccount" name="account" type="text" autocomplete="username" required />
+            </label>
+
+            <label class="login-field" for="loginPassword">
+              <span class="login-label-copy">
+                <strong>Password</strong>
+                <em>Password</em>
+              </span>
+              <input id="loginPassword" name="password" type="password" autocomplete="current-password" required />
+            </label>
+
+            <p class="login-error" id="loginError" role="alert" aria-live="polite"></p>
+
+            <button class="login-submit" type="submit">
+              <span>Sign in</span>
+              <em>Sign in</em>
+            </button>
+          </form>
+        </section>
+      </main>
+    </section>
+
+    <div class="app-shell is-hidden" id="appShell">
+      <aside class="sidebar" aria-label="主导航">
+        <div class="brand-block">
+          <div class="brand-mark zf-logo-mark" aria-label="ZF logo">
+            <img src="./assets/zf-logo-mark.png" alt="ZF logo" />
+          </div>
+          <div>
+            <div class="brand-title">公钥基础设施</div>
+          </div>
+        </div>
+
+        <nav class="nav-list" id="navList"></nav>
+
+        <div class="sidebar-footer">
+          <div class="root-ca-chip">
+            <span class="status-dot ok"></span>
+            <span>演示根 CA</span>
+          </div>
+          <div class="env-label">前端演示环境</div>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <div class="topbar-left">
+            <div class="page-title" id="pageTitle">CA 体系管理</div>
+          </div>
+
+          <div class="topbar-actions">
+            <div class="search-box">
+              <span class="search-icon">⌕</span>
+              <input id="globalSearch" type="search" placeholder="搜索 CA、证书、CSR、序列号" />
+            </div>
+            <div class="language-switcher" id="languageSwitcher" aria-label="语言切换">
+              <button class="language-toggle-button" data-language-toggle type="button">
+                <strong>English</strong>
+              </button>
+            </div>
+            <div class="role-badge" id="roleBadge" aria-label="当前角色"></div>
+            <button class="logout-button" id="logoutButton" type="button">退出</button>
+          </div>
+        </header>
+
+        <section class="view" id="view"></section>
+
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <div class="modal-backdrop" id="confirmModal" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-kicker">操作二次确认</div>
+        <h2 id="modalTitle">确认操作</h2>
+        <p id="modalBody">该操作将写入审计日志。</p>
+        <div class="modal-actions">
+          <button class="btn secondary" id="modalCancel" type="button">取消</button>
+          <button class="btn danger" id="modalConfirm" type="button">确认</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./dynamic-home.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

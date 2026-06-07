@@ -1,0 +1,31 @@
+PKI Certificate Management Demo Accounts
+========================================
+
+Open the demo:
+  index.html
+
+PKI Manager
+-----------
+Login role:
+  PKI Manager
+Account:
+  CyberTeam1
+Password:
+  123123
+Demo scope:
+  Full management console. This role can view and operate overview, certificate approval, certificate management, CA management, certificate templates, audit logs, and system settings.
+
+PKI User
+--------
+Login role:
+  PKI User
+Account:
+  User1
+Password:
+  321321
+Demo scope:
+  Certificate request demo. This role can access the user-side CSR / certificate application workflow.
+
+Notes
+-----
+These credentials are static frontend demo credentials only. They are not production accounts and should be replaced by real backend authentication before deployment.

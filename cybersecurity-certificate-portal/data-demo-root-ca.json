@@ -1,0 +1,35 @@
+{
+  "displayNameEn": "Demo Root CA",
+  "displayNameCn": "演示根 CA",
+  "type": "根 CA",
+  "level": "L1",
+  "status": "运行中",
+  "environment": "前端演示环境",
+  "productionMapping": "未来对接供应商后端根 CA 与密码机 / HSM",
+  "x509": {
+    "version": "X.509 v3",
+    "subject": {
+      "CN": "演示根 CA",
+      "O": "ZF",
+      "OU": "车辆网络安全 PKI",
+      "C": "CN",
+      "ST": "Shanghai",
+      "L": "Shanghai"
+    },
+    "signatureAlgorithm": "SHA256withECDSA",
+    "publicKeyAlgorithm": "ECDSA",
+    "curve": "P-256",
+    "validFrom": "2026-06-01T00:00:00Z",
+    "validTo": "2036-06-01T00:00:00Z",
+    "serialNumber": "DEMO-ROOT-CA-0001",
+    "basicConstraints": "CA=TRUE, pathLen=2",
+    "keyUsage": ["keyCertSign", "cRLSign"]
+  },
+  "hsmMapping": {
+    "provider": "Supplier HSM Integration",
+    "cluster": "Demo-HSM-Cluster-01",
+    "slot": "Slot-Root-01",
+    "keyAlias": "demo-root-ca-key",
+    "privateKeyExportable": false
+  }
+}
